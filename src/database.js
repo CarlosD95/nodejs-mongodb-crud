@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 
-const { NOTES_APP_MONGODB_HOST, NOTES_APP_MONGODB_DATABASE   } = process.env
+const { NOTES_APP_MONGODB_USER, NOTES_APP_MONGODB_PASSWORD, NOTES_APP_MONGODB_HOST, PORT } = process.env
 
-const DB_URI = process.env.DB_URI;
-
-
-mongoose.connect(DB_URI, {
+mongoose.connect(`mongodb://${NOTES_APP_MONGODB_USER}:${NOTES_APP_MONGODB_PASSWORD}@${NOTES_APP_MONGODB_HOST}:${PORT}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true, 
 })
